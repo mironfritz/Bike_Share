@@ -1,2 +1,42 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= bike_picture.jpg %>)">
+    <h1>Rent your dream bike</h1>
+  </div>
+
+  <div class="container-btn">
+    <div class="btn btn-outline-dark">
+      <h3>Sign up</h3>
+    </div>
+    <div class="btn btn-outline-light">
+      <h3>Sign in</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card-deck">
+    <div class="card">
+      <i class=“fas fa-bicycle”></i>
+      <div class="card-body">
+        <h5 class="card-title">Use the biggest renting platform for bikes</h5>
+        <p class="card-text">Easily choose your favorite bike near to your location!</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="/app/asset/image/bike_picture_three.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Try out new bikes</h5>
+        <p class="card-text">Different bikes for different durations!</p>
+      </div>
+    </div>
+    <div class="card">
+      <i class=“fas fa-globe-europe”></i>
+      <div class="card-body">
+        <h5 class="card-title">Earn extra money by renting your own bikes out</h5>
+        <p class="card-text">As a simple add on you will make the world a bit greener"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
