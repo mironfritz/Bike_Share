@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_151721) do
-
+ActiveRecord::Schema.define(version: 2020_07_14_095622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +18,11 @@ ActiveRecord::Schema.define(version: 2020_07_13_151721) do
   create_table "bikes", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "type"
     t.float "price_per_day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.string "bike_type"
     t.index ["user_id"], name: "index_bikes_on_user_id"
   end
 
