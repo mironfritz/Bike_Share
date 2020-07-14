@@ -24,6 +24,6 @@
   <% end %>
 </ul>
 
-<%= link_to "Back", bikes_path %>
-
 <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+
+<%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
