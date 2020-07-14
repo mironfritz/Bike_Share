@@ -43,4 +43,10 @@
   display: flex;
   justify-content: center;
   margin: 25px 25px;
+   img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center;
+  }
 }
