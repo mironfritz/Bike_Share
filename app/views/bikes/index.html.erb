@@ -1,0 +1,22 @@
+<h1>Bikes</h1>
+
+<ul>
+  <% @bikes.each do |bike| %>
+    <li>
+      <%= bike.title %>
+      <% if policy(bike).edit? %>
+        <%= link_to "Update", edit_bike_path(bike) %>
+      <% end %>
+
+      <% if policy(bike).destroy? %>
+        <%= link_to "Destroy", bike_path(bike), method: :delete %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<% if policy(Bike).create? %>
+  <%= link_to "New bike", new_bike_path %>
+<% end %>
+
+

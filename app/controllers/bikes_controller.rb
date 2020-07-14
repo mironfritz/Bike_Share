@@ -6,6 +6,7 @@ class BikesController < ApplicationController
 
   def new
     @bike = Bike.new
+    authorize @bike
   end
 
   def show
@@ -15,12 +16,13 @@ class BikesController < ApplicationController
   end
 
   def create
-    authorize @bike
     @bike = Bike.create(bike_params)
+    authorize @bike
     if @bike.save
       redirect_to @bike, notice: 'Bike was succesfully created!'
     else
       render :new
+    end
   end
 
   def update
@@ -41,6 +43,6 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:title, :description, :type, :price_per_day)
+    params.require(:bike).permit(:title, :description, :bike_type, :price_per_day)
   end
 end
