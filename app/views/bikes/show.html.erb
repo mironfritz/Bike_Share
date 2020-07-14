@@ -5,34 +5,25 @@
 <h2>Price/Day: <%= @bike.price_per_day %></h2>
 
 <% if policy(@bike).edit? %>
-        <%= link_to "Update", edit_bike_path(@bike) %>
-      <% end %>
+
+  <%= link_to "Update", edit_bike_path(@bike) %>
+<% end %>
+
+<% if policy(@bike).destroy? %>
+  <%= link_to "Delete", bike_path, method: :delete %>|
+<% end %>
+
+<% if policy(Booking).create? %>
+  <%= link_to "Book this bike", new_bike_booking_path(@bike) %>
+<% end %> |
+
+<h3>Bookings:</h3>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= "Booked from #{booking.start_day} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+  <% end %>
+</ul>
 
 <%= link_to "Back", bikes_path %>
 
-<div class="card-bike">
-  <img class="card-img-top" src=<%= asset_path("bike_orange") %> alt="Bike picture">
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-bike-user avatar-bordered" />
-  </div>
-</div>
-
-<div class="container-card">
-  <div class="card-deck">
-    <div class="card">
-      <i class="fas fa-bicycle"></i>
-      <div class="card-body">
-      <h5 class="card-title">Price per day</h5>
-      <p class="card-text">Pick your dates</p>
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="bg-white border p-3 sticky top">
-    <a href="#" class="btn btn-outline-dark w-100">Rent this bike</a>
-    <div class="d-flex justify-content-between mt-3">
-      <p><strong>Total</strong></p>
-      <p><strong>Put the price here</strong></p>
-    </div>
-  </div>
-</div>
-
+<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
