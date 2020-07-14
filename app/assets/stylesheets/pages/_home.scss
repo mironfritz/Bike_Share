@@ -3,6 +3,7 @@
   background-image: url("bike_picture.jpg");
   background-size: cover;
   background-position: center;
+  font-size: 100px;
   height: 400px;
   text-align: center;
   object-fit: cover;
@@ -14,10 +15,10 @@
 
 .banner h1 {
   margin: 0;
-  padding: 90px;
+  padding: 80px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
 }
 
