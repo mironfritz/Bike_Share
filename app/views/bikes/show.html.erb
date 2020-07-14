@@ -5,8 +5,19 @@
 <h2>Price/Day: <%= @bike.price_per_day %></h2>
 
 <% if policy(@bike).edit? %>
-        <%= link_to "Update", edit_bike_path(@bike) %>
-      <% end %>
+  <%= link_to "Update", edit_bike_path(@bike) %>
+<% end %>
+
+<% if policy(@booking).new? %>
+  <%= link_to "Book this bike", new_booking_path %>
+<% end %>
+
+<h3>Bookings:</h3>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= "Booked from #{booking.start_day} to #{booking.end_day} | booking status: #{booking.status}" %></li>
+  <% end %>
+</ul>
 
 <%= link_to "Back", bikes_path %>
 

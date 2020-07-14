@@ -1,0 +1,7 @@
+<h1>Book <%= @booking.bike.title %></h1>
+
+<%= simple_form_for (@bike, @booking) do |f|%>
+  <%= f.input :start_day %>
+  <%= f.input :end_day %>
+  <%= f.submit "Request booking", class: "btn btn-primary" %>
+<% end %>
