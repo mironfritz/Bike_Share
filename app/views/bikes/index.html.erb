@@ -1,17 +1,19 @@
-<ul>
-  <% @bikes.each do |bike| %>
-    <li>
-      <%= link_to bike.title, bike_path(bike) %>
-      <% if policy(bike).edit? %>
-        <%= link_to "Update", edit_bike_path(bike) %>
-      <% end %>
-      <% if policy(bike).destroy? %>
-        <%= link_to "Destroy", bike_path(bike), method: :delete %>
-      <% end %>
-      <%= link_to "Show bike", bike, class: "btn btn-outline-primary"%>
-    </li>
-  <% end %>
-</ul>
 <% if policy(Bike).create? %>
-  <%= link_to "New bike", new_bike_path %>
+  <%= link_to "➕ Add bike", new_bike_path, class: "btn btn-outline-info"%>
 <% end %>
+
+<div class="flex-container">
+    <% @bikes.each do |bike| %>
+     <div class="card">
+        <%= bike.title %>
+        <% if policy(bike).edit? %>
+          <%= link_to "Update", edit_bike_path(bike) %>
+        <% end %>
+
+        <% if policy(bike).destroy? %>
+          <%= link_to "Destroy", bike_path(bike), method: :delete %>
+        <% end %>
+        <%= link_to "Show bike", bike, class: "btn btn-outline-info"%>
+      </div>
+    <% end %>
+</div>
