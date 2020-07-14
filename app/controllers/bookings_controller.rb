@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
-  before_action :set_bike, only: %i(edit update destroy)
+  before_action :set_booking, only: %i(edit update destroy)
 
   def new
-    @bike = Bike.find(params(:id))
+    @bike = Bike.find(params[:bike_id])
     @booking = Booking.new
     authorize @booking
   end
@@ -11,11 +11,14 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @bike =  Bike.find(params[:bike_id])
     @booking = Booking.create(booking_params)
     @booking.status = "booking requested"
+    @booking.bike = @bike
+    @booking.user = current_user
     authorize @booking
     if @booking.save!
-      redirect_to @booking, notice: 'You booked the bike!'
+      redirect_to bike_path(@bike), notice: 'You booked the bike!'
     else
       render :new
     end

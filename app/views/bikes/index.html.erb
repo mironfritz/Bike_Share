@@ -3,7 +3,7 @@
 <ul>
   <% @bikes.each do |bike| %>
     <li>
-      <%= bike.title %>
+      <%= link_to bike.title, bike_path(bike) %>
       <% if policy(bike).edit? %>
         <%= link_to "Update", edit_bike_path(bike) %>
       <% end %>
@@ -17,6 +17,7 @@
 
 <% if policy(Bike).create? %>
   <%= link_to "New bike", new_bike_path %>
-<% end %>
+<% end %> |
+
 
 

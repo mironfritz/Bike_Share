@@ -10,7 +10,7 @@ class BikesController < ApplicationController
   end
 
   def show
-    @bookings = Booking.where(bike_id == @bike.id)
+    @bookings = Booking.where(params[:id] == @bike.id)
   end
 
   def edit
