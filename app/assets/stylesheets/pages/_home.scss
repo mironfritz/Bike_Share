@@ -1,9 +1,13 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: url("/images/bike_picture.jpg");
+  background-image: url("app/assets/images/bike_picture.jpg");
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  width:100%;
+  height: 120px;
+  text-align: center;
+}
 
 .banner h1 {
   margin: 0;
