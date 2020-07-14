@@ -1,5 +1,3 @@
-<h1>Bikes</h1>
-
 <ul>
   <% @bikes.each do |bike| %>
     <li>
@@ -7,16 +5,13 @@
       <% if policy(bike).edit? %>
         <%= link_to "Update", edit_bike_path(bike) %>
       <% end %>
-
       <% if policy(bike).destroy? %>
         <%= link_to "Destroy", bike_path(bike), method: :delete %>
       <% end %>
+      <%= link_to "Show bike", bike, class: "btn btn-outline-primary"%>
     </li>
   <% end %>
 </ul>
-
 <% if policy(Bike).create? %>
   <%= link_to "New bike", new_bike_path %>
 <% end %>
-
-
