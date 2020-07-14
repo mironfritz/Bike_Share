@@ -1,11 +1,11 @@
 <h1><%= @bike.title %></h1>
-<h2><%= @bike.type %></h2>
+<h2><%= @bike.bike_type %></h2>
 <%= @bike.description %>
 
 <h2>Price/Day: <%= @bike.price_per_day %></h2>
 
-<% if policy(bike).edit? %>
-        <%= link_to "Update", edit_bike_path(bike) %>
+<% if policy(@bike).edit? %>
+        <%= link_to "Update", edit_bike_path(@bike) %>
       <% end %>
 
 <%= link_to "Back", bikes_path %>
