@@ -1,42 +1,37 @@
-<div class="container">
-
-  <div class="banner">
-    <h1>Rent your dream bike</h1>
-  </div>
-
-  <div class="container-btn">
+  <div class="container-banner">
+    <div class="banner">
+      <h1>Rent your dream bike</h1>
     <div class="btn btn-outline-dark">
-      <h3>Sign up</h3>
+      <h3>Go to bikes</h3>
     </div>
     <div class="btn btn-outline-info">
-      <h3>Sign in</h3>
+      <h3>Become a renter</h3>
     </div>
   </div>
-</div>
 
-<div class="container">
+<div class="container-card">
   <div class="card-deck">
     <div class="card">
-      <i class=“fas fa-bicycle”></i>
+      <img class="card-img-top" src=<%= asset_path("bike_black") %> alt="Card image bike 1">
+      <i class="fas fa-bicycle"></i>
       <div class="card-body">
-        <h5 class="card-title">Use the biggest renting platform for bikes</h5>
-        <p class="card-text">Easily choose your favorite bike near to your location!</p>
+        <h5 class="card-title">Earn extra money with your bikes</h5>
+        <p class="card-text">As a simple add on you will make the world a bit greener!</p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src="/app/assets/images/bike_picture_three.jpg" alt="Card image cap">
+      <img class="card-img-top" src=<%= asset_path("bike_picture_three") %> alt="Card image bike 2">
       <div class="card-body">
-        <h5 class="card-title">Try out new bikes</h5>
-        <p class="card-text">Different bikes for different durations!</p>
+        <h5 class="card-title btn btn-outline-dark">Go to bikes</h5>
+        <p class="card-text">Different bikes for different needs!</p>
       </div>
     </div>
     <div class="card">
-      <i class=“fas fa-globe-europe”></i>
+      <img class="card-img-top" src=<%= asset_path("bike_black_two") %> alt="Card image bike 3">
+      <i class="fas fa-globe-europe"></i>
       <div class="card-body">
-        <h5 class="card-title">Earn extra money by renting your own bikes out</h5>
-        <p class="card-text">As a simple add on you will make the world a bit greener"</p>
+        <h5 class="card-title">Try out the biggest bike renting platform</h5>
+        <p class="card-text">Easily choose your favorite bike near to your location!"</p>
       </div>
     </div>
   </div>
-</div>
-
