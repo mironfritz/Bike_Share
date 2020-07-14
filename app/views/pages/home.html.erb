@@ -5,10 +5,10 @@
     <div class="banner">
       <h1>Rent your dream bike</h1>
     <div class="btn btn-outline-dark">
-      <%= link_to "Go to bikes", bikes_path %>
+      <%= link_to "Find a bike", bikes_path %>
     </div>
     <div class="btn btn-outline-info">
-      <h3>Become a renter</h3>
+      <%= link_to "Rent out a bike", new_bike_path %>
     </div>
   </div>
 </div>
@@ -26,8 +26,10 @@
     <div class="card">
       <img class="card-img-top" src=<%= asset_path("bike_picture_three") %> alt="Card image bike 2">
       <div class="card-body">
-        <h5 class="card-title btn btn-outline-dark">Go to bikes</h5>
-        <p class="card-text">Rent different bikes for different needs!</p>
+        <div class="btn btn-outline-dark">
+          <%= link_to "Find a bike", bikes_path %>
+        </div>
+        <p class="card-text">Different bikes for different needs!</p>
       </div>
     </div>
     <div class="card">
