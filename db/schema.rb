@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2020_07_15_181200) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "status"
-    t.date "start_day"
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.bigint "bike_id"
+    t.date "start_date"
     t.index ["bike_id"], name: "index_bookings_on_bike_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

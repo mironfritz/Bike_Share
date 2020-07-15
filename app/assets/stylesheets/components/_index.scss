@@ -3,6 +3,7 @@
 @import "avatar";
 @import "navbar";
 @import "map";
+@import "button";
 
 .flex-container {
   margin: 30px 30px;
@@ -31,4 +32,18 @@
     object-fit: none; /* Do not scale the image */
     object-position: center;
   }
+
+  .show-bikeB{
+    width: 100%;
+    /*justify-content: flex-end;*/
+  }
+}
+
+.title{
+  padding-top: 10px;
+  margin: 0, auto;
+}
+
+.description{
+  padding-top: 10px
 }
