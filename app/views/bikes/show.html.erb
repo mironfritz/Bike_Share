@@ -15,7 +15,7 @@
 
 <% if policy(Booking).create? %>
   <%= link_to "Book this bike", new_bike_booking_path(@bike) %>
-<% end %> |
+<% end %>
 
 <h3>Bookings:</h3>
 <ul>
@@ -26,4 +26,6 @@
 
 <%= link_to "Back", bikes_path %>
 
-<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+<div>
+  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
