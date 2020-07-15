@@ -15,7 +15,7 @@
     <h2>Price/Day: <%= @bike.price_per_day %></h2>
 
     <% if policy(@bike).edit? %>
-
+  
       <%= link_to "Update", edit_bike_path(@bike), class: "card-title btn btn-outline-dark" %>
     <% end %>
 
@@ -53,4 +53,6 @@
 
 </div>
 
+<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
 
+<%= link_to "Back", bikes_path, class: "btn btn-secondary" %>

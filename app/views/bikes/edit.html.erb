@@ -1,10 +1,17 @@
-<h1>Update <%= @bike.title %></h1>
 
-<%= simple_form_for @bike do |f| %>
-  <%= f.input :title %>
-  <%= f.input :bike_type %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
-  <%= f.submit "Update", class: "btn btn-warning" %>
-<% end %>
+<div class="container">
+  <div class="title"><h1><%= @bike.title %></h1></div>
+  <div class="form">
+    <%= simple_form_for @bike do |f| %>
+      <%= f.input :title %>
+      <%= f.input :bike_type %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Update", class: "btn btn-warning" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
 

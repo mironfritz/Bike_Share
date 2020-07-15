@@ -4,11 +4,12 @@
   <div class="container-banner">
     <div class="banner">
       <h1>Rent your dream bike</h1>
+      
     <div class="btn btn-dark">
-      <h4>Go to bikes</h4>
+      <%= link_to "Find a bike", bikes_path %>
     </div>
     <div class="btn btn-warning">
-      <h4>Become a renter</h4>
+      <%= link_to "Rent out a bike", new_bike_path %>
     </div>
   </div>
 </div>
@@ -16,7 +17,7 @@
 <div class="container-card">
   <div class="card-deck">
     <div class="card">
-      <img class="card-img-top" src=<%= asset_path("bike_black") %> alt="Card image bike 1">
+      <img class="card-img-top" src=<%= image_path("bike_black.jpg") %> alt="Card image bike 1">
       <i class="fas fa-bicycle"></i>
       <div class="card-body">
         <h5 class="card-title">Earn extra money with your bikes</h5>
@@ -24,14 +25,16 @@
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src=<%= asset_path("bike_picture_three") %> alt="Card image bike 2">
-      <div class="card-body">
-        <h5 class="card-title btn btn-outline-warning">Go to bikes</h5>
-        <p class="card-text">Rent different bikes for different needs!</p>
+      <img class="card-img-top" src=<%= image_path("bike_picture_three.jpg") %> alt="Card image bike 2">
+      <div class="card-body">   
+        <div class="btn btn-outline-warning">
+          <%= link_to "Find a bike", bikes_path %>
+        </div>
+        <p class="card-text">Different bikes for different needs!</p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" src=<%= asset_path("bike_black_two") %> alt="Card image bike 3">
+      <img class="card-img-top" src=<%= image_path("bike_black_two.jpg") %> alt="Card image bike 3">
       <i class="fas fa-globe-europe"></i>
       <div class="card-body">
         <h5 class="card-title">Try out the biggest bike renting platform</h5>

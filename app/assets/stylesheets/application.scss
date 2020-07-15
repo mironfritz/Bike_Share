@@ -11,6 +11,9 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "components/form";
+@import "components/button";
+
 
 .footer {
   text-align: center;
@@ -27,8 +30,22 @@ body {
   margin: 0;
 }
 
-.wrapper {
- min-height: 100%;
- margin-bottom: -50px;
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+.content-container {
+  flex-grow: 1;
+}
+
+.footer-container {
+  flex-grow: 0;
+}
+
+// .body {
+//   display: flex;
+//   min-height: 100vh;
+//   flex-direction: column;
+// }

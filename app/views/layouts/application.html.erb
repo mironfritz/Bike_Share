@@ -16,12 +16,19 @@
 
 
   <body>
-    <% if content_for? :navbar %>
-      <%= yield :navbar %>
-    <% else %>
-      <%= render "shared/navbar" %>
-    <% end %>
-    <%= render "shared/footer" %>
+    <div class="page-container">
+      <div class="content-container">
+       <% if content_for? :navbar %>
+          <%= yield :navbar %>
+        <% else %>
+          <%= render "shared/navbar" %>
+        <% end %>
+        <%= yield %>
+      </div>
+      <div class="footer-container">
+        <%= render "shared/footer" %>
+      </div>
+    </div>
   </body>
 
 </html>
