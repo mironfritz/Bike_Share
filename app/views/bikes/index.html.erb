@@ -2,18 +2,22 @@
   <%= link_to "➕ Add bike", new_bike_path, class: "btn btn-outline-info"%>
 <% end %>
 
+
 <div class="flex-container">
     <% @bikes.each do |bike| %>
      <div class="card">
-        <%= bike.title %>
-        <% if policy(bike).edit? %>
-          <%= link_to "Update", edit_bike_path(bike) %>
+       <% if bike.photo.attached? %>
+        <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill  %>
         <% end %>
-
-        <% if policy(bike).destroy? %>
-          <%= link_to "Destroy", bike_path(bike), method: :delete %>
-        <% end %>
+        <div class="title">
+          <h2><%= bike.title%></h2>
+        </div>
+        <div class="description">
+        <p><bold><%= bike.description %></bold></p>
+        </div>
         <%= link_to "Show bike", bike, class: "btn btn-outline-info"%>
       </div>
     <% end %>
 </div>
+
+
