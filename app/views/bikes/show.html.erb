@@ -1,31 +1,56 @@
-<h1><%= @bike.title %></h1>
-<h2><%= @bike.bike_type %></h2>
-<%= @bike.description %>
+<div class="background">
 
-<h2>Price/Day: <%= @bike.price_per_day %></h2>
-
-<% if policy(@bike).edit? %>
-
-  <%= link_to "Update", edit_bike_path(@bike) %>
-<% end %>
-
-<% if policy(@bike).destroy? %>
-  <%= link_to "Delete", bike_path, method: :delete %>|
-<% end %>
-
-<% if policy(Booking).create? %>
-  <%= link_to "Book this bike", new_bike_booking_path(@bike) %>
-<% end %>
-
-<h3>Bookings:</h3>
-<ul>
-  <% @bookings.each do |booking| %>
-    <li><%= "Booked from #{booking.start_day} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+<div class="uploaded-image">
+  <% if @bike.photo.attached? %>
+    <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
-</ul>
-
-<%= link_to "Back", bikes_path %>
-
-<div>
-  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
 </div>
+
+<div class="container">
+  <div class="card">
+    <h1 style="color:#72BEC4";><bold><%= @bike.title %></bold></h1>
+    <h2><%= @bike.bike_type %></h2>
+      <%= @bike.description %>
+
+    <h2>Price/Day: <%= @bike.price_per_day %></h2>
+
+    <% if policy(@bike).edit? %>
+
+      <%= link_to "Update", edit_bike_path(@bike), class: "card-title btn btn-outline-dark" %>
+    <% end %>
+
+    <% if policy(@bike).destroy? %>
+      <%= link_to "Delete", bike_path, method: :delete, class: "card-title btn btn-outline-dark"%>|
+    <% end %>
+
+    <% if policy(Booking).create? %>
+      <%= link_to "Book this bike", new_bike_booking_path(@bike), class: "card-title btn btn-outline-warning"%>
+    <% end %>
+
+    <h3>Bookings:</h3>
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li><%= "Booked from #{booking.start_day} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+      <% end %>
+    </ul>
+
+    <%= link_to "Back", bikes_path, class: "card-title btn btn-outline-dark"%>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <i class="fas fa-bicycle"></i>
+        <%= link_to "Book this bike", @bike, class: "card-title btn btn-warning"%>
+      <p class="card-text">Get in touch with the renter</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <p>Some text</p>
+</div>
+
+</div>
+
+
