@@ -1,43 +1,54 @@
-.card-bike {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.uploaded-image {
   display: flex;
   justify-content: center;
-  margin: 25px 25px;
-  padding: 50px;
+  width: 100%;
 }
 
-.card-bike > img {
-  height: 100%;
-  width: 120px;
-  object-fit: cover;
+.background {
+  background-image: url("bike_picture_two.jpg");
+  background-size: cover;
+  background-position: center;
+  background-size: 1500px 1000px;
+  opacity: 0.7;
 }
 
-.card-bike h2 {
-  font-size: 16px;
-  color: grey;
-  font-weight: bold;
-  margin: 0;
-}
+// .card-booking {
+//   display: flex;
+//   justify-content: center;
+//   background-color: white;
+//   width: 200 px;
+//   margin: 25px 25px;
+// }
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   box-shadow: 6px 2px 2px 1px rgba(0, 0, 0, 0.6);
+// }
 
-.card-bike p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
+// .card{
+//   padding: 60px;
+//   border-radius: 4px;
+//   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
+//   margin: 50px 50px;
+//   width: 300px;
+//   font-family: ‘Dosis’, sans-serif;
+//   text-align: center;
+//   font-size: 50px;
+// }
 
-.card-bike-infos .card-bike-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
+// .fas {
+//   font-size: 50px;
+//   text-align: center;
+//   color: grey;
+//   padding: 20px;
+// }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
+// img {
+//     max-width: 100%;
+//     max-height: 100%;
+//     object-fit: none; /* Do not scale the image */
+//     object-position: center;
+//   }
 
 .container-card {
   display: flex;
