@@ -20,7 +20,7 @@
 <h3>Bookings:</h3>
 <ul>
   <% @bookings.each do |booking| %>
-    <li><%= "Booked from #{booking.start_day} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+    <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
   <% end %>
 </ul>
 
