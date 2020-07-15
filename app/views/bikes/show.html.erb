@@ -14,7 +14,7 @@
 <% end %>
 
 <% if policy(Booking).create? %>
-  <%= link_to "Book this bike", new_bike_booking_path(@bike) %>
+  <%= link_to "Book this bike", @bike , class: "booking-button"%>
 <% end %> |
 
 <h3>Bookings:</h3>
@@ -27,3 +27,22 @@
 <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
 
 <%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
+
+
+<!-- Booking -->
+
+
+<div class="form-pop-up">
+  <div class="header pb-3 pt-3 ">
+    <h1>Book <%= @bike.title %></h1>
+  </div>
+
+  <div>
+    <%= simple_form_for [@bike, @booking] do |f|%>
+      <%= f.input :start_day %>
+      <%= f.input :end_date %>
+      <%= f.submit "Request booking", class: "btn btn-info" %>
+    <% end %>
+    <%= link_to "Cancel", bike_path(@bike), class: "btn btn-secondary" %>
+  </div>
+</div>

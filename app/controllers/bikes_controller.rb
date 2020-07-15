@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: %i(show edit update destroy)
+
   def index
     @bikes = policy_scope(Bike).order(created_at: :desc)
   end
@@ -10,6 +11,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @bookings = Booking.where(params[:id] == @bike.id)
   end
 
