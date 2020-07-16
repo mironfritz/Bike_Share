@@ -26,7 +26,7 @@
           <%= link_to "Delete", bike_path, method: :delete, class: "card-title primary-button"%>
         <% end %>
 
-        <% if policy(Booking).create? %>
+        <% if policy(@booking).create? %>
           <%= link_to "Book this bike", @bike , class: "primary-button booking-button card-title"%>
         <% end %>
           <h3>Bookings:</h3>

@@ -5,11 +5,7 @@ class BookingPolicy < ApplicationPolicy
     end
   end
   def create?
-    return true
-  end
-
-  def new?
-    return create?
+    return record.bike.user != user
   end
 
   def update?
