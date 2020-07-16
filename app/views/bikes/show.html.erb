@@ -1,48 +1,54 @@
-<h1><%= @bike.title %></h1>
-<h2><%= @bike.bike_type %></h2>
-<%= @bike.description %>
-
-<h2>Price/Day: <%= @bike.price_per_day %></h2>
-
-<% if policy(@bike).edit? %>
-
-  <%= link_to "Update", edit_bike_path(@bike) %>
-<% end %>
-
-<% if policy(@bike).destroy? %>
-  <%= link_to "Delete", bike_path, method: :delete %>|
-<% end %>
-
-<% if policy(Booking).create? %>
-  <%= link_to "Book this bike", @bike , class: "booking-button"%>
-<% end %> |
-
-<h3>Bookings:</h3>
-<ul>
-  <% @bookings.each do |booking| %>
-    <li><%= "Booked from #{booking.start_day} to #{booking.end_date} | booking status: #{booking.status}" %></li>
-  <% end %>
-</ul>
-
-<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
-
-<%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
-
-
-<!-- Booking -->
-
-
-<div class="form-pop-up">
-  <div class="header pb-3 pt-3 ">
-    <h1>Book <%= @bike.title %></h1>
+<div class="page-container">
+  <h1><%= @bike.title %></h1>
+  <h2><%= @bike.bike_type %></h2>
+  <%= @bike.description %>
+  <div class="day-price">
+    <%= @bike.price_per_day %>
   </div>
+  <% if policy(@bike).edit? %>
 
-  <div>
-    <%= simple_form_for [@bike, @booking] do |f|%>
-      <%= f.input :start_day %>
-      <%= f.input :end_date %>
-      <%= f.submit "Request booking", class: "btn btn-info" %>
+    <%= link_to "Update", edit_bike_path(@bike) %>
+  <% end %>
+
+  <% if policy(@bike).destroy? %>
+    <%= link_to "Delete", bike_path, method: :delete %>|
+  <% end %>
+
+  <% if policy(Booking).create? %>
+    <%= link_to "Book this bike", @bike , class: "booking-button"%>
+  <% end %> |
+
+  <h3>Bookings:</h3>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
     <% end %>
-    <%= link_to "Cancel", bike_path(@bike), class: "btn btn-secondary" %>
+  </ul>
+
+  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+
+  <%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
+
+
+  <!-- Booking -->
+
+
+<div class="popup">
+    <div class="pb-3 pt-3 ">
+      <h1>Book <%= @bike.title %></h1>
+    </div>
+
+    <div>
+      <%= simple_form_for [@bike, @booking] do |f|%>
+        <%= f.input :start_date, class: "start_date"%>
+        <%= f.input :end_date, class: "end_date"%>
+        <div class="price">
+        <%= "Total Price:"  %>
+        <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %>
+        </div>
+        <%= f.submit "Request booking", class: "btn btn-info" %>
+        <%= link_to "Cancel", bike_path(@bike), class: "btn btn-secondary" %>
+      <% end %>
+    </div>
   </div>
 </div>
