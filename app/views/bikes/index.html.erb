@@ -1,7 +1,6 @@
 <% if policy(Bike).create? %>
-  <%= link_to "➕ Add bike", new_bike_path, class: "btn btn-outline-info"%>
+  <%= link_to "➕ Add bike", new_bike_path, class: "a-white primary-button"%>
 <% end %>
-
 
 <div class="flex-container">
     <% @bikes.each do |bike| %>
@@ -22,4 +21,7 @@
     <% end %>
 </div>
 
-
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
