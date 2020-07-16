@@ -20,6 +20,7 @@ class BikesController < ApplicationController
   def show
     @booking = Booking.new(bike: @bike)
     @bookings = Booking.where(params[:id] == @bike.id)
+    @bookings = Booking.all
   end
 
   def edit
