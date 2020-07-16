@@ -1,7 +1,7 @@
 function hidePopUp() {
   const card = document.querySelector(".popup");
   const bookingButton = document.querySelector(".booking-button");
-  if (card && bookingButton) {
+  if (card || bookingButton) {
     card.style.display = "none";
     bookingButton.addEventListener("click", (event) => {
       event.preventDefault()
