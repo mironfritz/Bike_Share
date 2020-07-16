@@ -1,54 +1,75 @@
+
 <div class="page-container">
-  <h1><%= @bike.title %></h1>
-  <h2><%= @bike.bike_type %></h2>
-  <%= @bike.description %>
-  <div class="day-price">
-    <%= @bike.price_per_day %>
-  </div>
-  <% if policy(@bike).edit? %>
 
-    <%= link_to "Update", edit_bike_path(@bike) %>
-  <% end %>
+  <div class=flexbox-card>
+    <div class="container show-card-container">
+      <div class="card">
+    <h1 style="color:grey; text-align:center"><bold><%= @bike.title %></bold></h1>
+      <div class="uploaded-image">
+        <% if @bike.photo.attached? %>
+          <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+      </div>
+      <div class="flexbox-price">
+          <h3 style="text-align:left;">Type: <%= @bike.bike_type %></h3>
+          <h5 style="text-align:center; color: #E02C1D; margin: 5px;">
+            <p>Daily price:</p>
+            <p style="text-align:center;"> <span class="day-price"><%= @bike.price_per_day %></span> SEK</p>
+          </h5>
+      </div>
+          <h4 style="color: grey;text-align:left">Details: <%= @bike.description %></h4>
+          <% if policy(@bike).edit? %>
+            <%= link_to "Update", edit_bike_path(@bike), class: "card-title primary-button" %>
+          <% end %>
 
-  <% if policy(@bike).destroy? %>
-    <%= link_to "Delete", bike_path, method: :delete %>|
-  <% end %>
+        <% if policy(@bike).destroy? %>
+          <%= link_to "Delete", bike_path, method: :delete, class: "card-title primary-button"%>
+        <% end %>
 
-  <% if policy(Booking).create? %>
-    <%= link_to "Book this bike", @bike , class: "booking-button"%>
-  <% end %> |
-
-  <h3>Bookings:</h3>
-  <ul>
-    <% @bookings.each do |booking| %>
-      <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
-    <% end %>
-  </ul>
-
-  <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
-
-  <%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
-
-
-  <!-- Booking -->
-
-
-<div class="popup">
-    <div class="pb-3 pt-3 ">
-      <h1>Book <%= @bike.title %></h1>
-    </div>
-
-    <div>
-      <%= simple_form_for [@bike, @booking] do |f|%>
-        <%= f.input :start_date, class: "start_date"%>
-        <%= f.input :end_date, class: "end_date"%>
-        <div class="price">
-        <%= "Total Price:"  %>
-        <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %>
+        <% if policy(Booking).create? %>
+          <%= link_to "Book this bike", @bike , class: "primary-button booking-button card-title"%>
+        <% end %>
+          <h3>Bookings:</h3>
+          <ul>
+            <% @bookings.each do |booking| %>
+              <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+            <% end %>
+          </ul>
         </div>
-        <%= f.submit "Request booking", class: "btn btn-info" %>
-        <%= link_to "Cancel", bike_path(@bike), class: "btn btn-secondary" %>
-      <% end %>
+      </div>
+
+    <div class="flexbox-map">
+      <div style="padding:50px; height:500;" class="card">
+        <p>Map here</p>
+      </div>
+
+      <div style="padding:50px; height:500;" class="card">
+        <p>Booking calender here</p>
+      </div>
+    </div>
+  </div>
+
+    <!-- Booking -->
+
+
+  <div class="popup">
+      <div class="pb-3 pt-3 ">
+        <h1>Book <%= @bike.title %></h1>
+      </div>
+
+      <div>
+        <%= simple_form_for [@bike, @booking] do |f|%>
+          <%= f.input :start_date, class: "start_date"%>
+          <%= f.input :end_date, class: "end_date"%>
+          <div class="price">
+          <%= "Total Price:"  %>
+          <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %>
+          </div>
+          <%= f.submit "Request booking", class: "primary-button" %>
+          <%= link_to "Cancel", bike_path(@bike), class: "secondary-button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+

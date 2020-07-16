@@ -1,12 +1,16 @@
-<h1>New bike</h1>
+<div class="form-container">
+  <div class="title"><h1>New bike</h1></div>
+  <div class="form">
+    <%= simple_form_for @bike do |f| %>
+      <%= f.input :title %>
+      <%= f.input :bike_type %>
+      <%= f.input :description %>
+      <%= f.input :price_per_day %>
+      <%= f.input :address, label: 'Location' %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create", class: "primary-button" %>
+    <% end %>
+  </div>
+</div>
 
-<%= simple_form_for @bike do |f| %>
-  <%= f.input :title %>
-  <%= f.input :bike_type %>
-  <%= f.input :description %>
-  <%= f.input :price_per_day %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Create", class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to "Back", bikes_path, class: "btn btn-secondary" %>
+<%= link_to "Back", bikes_path, class: "secondary-button" %>

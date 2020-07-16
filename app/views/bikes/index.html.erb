@@ -1,19 +1,27 @@
 <% if policy(Bike).create? %>
-  <%= link_to "➕ Add bike", new_bike_path, class: "btn btn-outline-info"%>
+  <%= link_to "➕ Add bike", new_bike_path, class: "a-white primary-button"%>
 <% end %>
 
 <div class="flex-container">
     <% @bikes.each do |bike| %>
-     <div class="card">
-        <%= bike.title %>
-        <% if policy(bike).edit? %>
-          <%= link_to "Update", edit_bike_path(bike) %>
+    <%= link_to bike, class: "card bike d-flex flex-column btn" do %>
+         <% if bike.photo.attached? %>
+          <%= cl_image_tag bike.photo.key, height: 300, width: 300, crop: :fill  %>
+          <% end %>
+          <div class="title" mt-3>
+            <h2><%= bike.title%></h2>
+          </div>
+          <div class="description">
+          <p><%= bike.description %></p>
+          </div>
+          <div class="price">
+            <p><%= bike.price_per_day %> SEK</p>
+          </div>
         <% end %>
-
-        <% if policy(bike).destroy? %>
-          <%= link_to "Destroy", bike_path(bike), method: :delete %>
-        <% end %>
-        <%= link_to "Show bike", bike, class: "btn btn-outline-info"%>
-      </div>
     <% end %>
 </div>
+
+  <div id="map"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>

@@ -29,7 +29,11 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import {hidePopUp, showPrice} from '../components/pop_up'
 
+import { initNavbar } from '../channels/navbar';
+
+
 document.addEventListener('turbolinks:load', () => {
+  initNavbar();
   // Call your functions here, e.g:
   // initSelect2();
   hidePopUp();
@@ -37,3 +41,13 @@ document.addEventListener('turbolinks:load', () => {
 
 
 });
+
+import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
+
+document.addEventListener('turbolinks:load', () => {
+  window.setTimeout(() => {
+  initMapbox();
+  }, 300)
+  initAutocomplete();
+})

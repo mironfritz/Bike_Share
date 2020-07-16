@@ -2,7 +2,14 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i(show edit update destroy)
 
   def index
-    @bikes = policy_scope(Bike).order(created_at: :desc)
+    @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
+    @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bike: bike }),
+      }
+    end
   end
 
   def new
@@ -22,7 +29,7 @@ class BikesController < ApplicationController
     @bike = Bike.create(bike_params)
     @bike.user = current_user
     authorize @bike
-    if @bike.save!
+    if @bike.save
       redirect_to @bike, notice: 'Bike was succesfully created!'
     else
       render :new
@@ -47,6 +54,6 @@ class BikesController < ApplicationController
   end
 
   def bike_params
-    params.require(:bike).permit(:title, :description, :bike_type, :price_per_day, :photo)
+    params.require(:bike).permit(:title, :description, :bike_type, :price_per_day, :address, :photo)
   end
 end
