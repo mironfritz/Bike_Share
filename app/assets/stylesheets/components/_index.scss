@@ -5,37 +5,28 @@
 @import "map";
 @import "button";
 
-
-.flex-container {
-  margin: 30px 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px
-}
-
-.card {
+.index-card {
   list-style: none;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   margin: 20px 20px;
-  width: 300px;
+  width: 100%;
   margin: 0 auto;
   font-family: 'Dosis', sans-serif;
-  text-align: center;
+  display: flex;
 
-  h5 {
+    h5 {
     margin-top: 10px;
-  }
+    }
+}
 
-  }
-
-  .card-deck{
-    img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: fill ; /* Do not scale the image */
-    object-position: center;
+.card-deck{
+  img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill; /* Do not scale the image */
+  object-position: center;
   }
 
   .show-bikeB{
@@ -56,4 +47,14 @@
 .index-container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+}
+
+.card-container {
+  flex-grow: 6;
+  width: 100%;
+}
+
+.index-text {
+  margin: 40px;
 }
