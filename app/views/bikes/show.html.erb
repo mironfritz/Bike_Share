@@ -1,39 +1,52 @@
-<div class="background">
-
-  <div class="uploaded-image">
-    <% if @bike.photo.attached? %>
-      <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  </div>
-
+<div class=flexbox-card>
   <div class="container show-card-container">
     <div class="card">
-      <h1 style="color:#72BEC4";><bold><%= @bike.title %></bold></h1>
-      <h2><%= @bike.bike_type %></h2>
-        <%= @bike.description %>
 
-      <h2>Price/Day: <%= @bike.price_per_day %></h2>
-
-      <% if policy(@bike).edit? %>
-        <%= link_to "Update", edit_bike_path(@bike), class: "card-title btn btn-outline-dark" %>
+  <h1 style="color:grey; text-align:center"><bold><%= @bike.title %></bold></h1>
+    <div class="uploaded-image">
+      <% if @bike.photo.attached? %>
+        <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
       <% end %>
+    </div>
+    <div class="flexbox-price">
+        <h3 style="text-align:left;">Type: <%= @bike.bike_type %></h3>
 
-      <% if policy(@bike).destroy? %>
-        <%= link_to "Delete", bike_path, method: :delete, class: "card-title btn btn-outline-dark"%>
-      <% end %>
-
-      <% if policy(Booking).create? %>
-        <%= link_to "Book this bike", new_bike_booking_path(@bike), class: "card-title btn btn-outline-warning"%>
-      <% end %>
-
-      <h3>Bookings:</h3>
-      <ul>
-        <% @bookings.each do |booking| %>
-          <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+        <h5 style="text-align:center; color: #E02C1D; margin: 5px;">
+          <p>Daily price:</p>
+          <p style="text-align:center;"> <%= @bike.price_per_day %> SEK</p>
+        </h5>
+    </div>
+        <h4 style="color: grey;text-align:left">Details: <%= @bike.description %></h4>
+        <% if policy(@bike).edit? %>
+          <%= link_to "Update", edit_bike_path(@bike), class: "card-title btn btn-outline-dark" %>
         <% end %>
-      </ul>
 
-      <%= link_to "Back", bikes_path, class: "card-title btn btn-outline-dark"%>
+        <% if policy(@bike).destroy? %>
+          <%= link_to "Delete", bike_path, method: :delete, class: "card-title btn btn-outline-dark"%>
+        <% end %>
+
+        <% if policy(Booking).create? %>
+          <%= link_to "Book this bike", new_bike_booking_path(@bike), class: "card-title btn btn-outline-warning"%>
+        <% end %>
+
+        <h3>Bookings:</h3>
+        <ul>
+          <% @bookings.each do |booking| %>
+            <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
+          <% end %>
+        </ul>
+
+        <%= link_to "Back", bikes_path, class: "card-title btn btn-outline-dark"%>
+      </div>
+    </div>
+
+  <div class="flexbox-map">
+    <div style="padding:50px; height:500;" class="card">
+      <p>Map here</p>
+    </div>
+
+    <div style="padding:50px; height:500;" class="card">
+      <p>Booking calender here</p>
     </div>
   </div>
 </div>

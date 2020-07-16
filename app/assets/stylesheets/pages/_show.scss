@@ -2,19 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 10px;
-}
-
-.background {
-  background-image: url("bike_picture_two.jpg");
-  background-size: cover;
-  background-position: center;
-  background-size: 1800px 1300px;
-  opacity: 0.7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  margin: 20px;
 }
 
 .show-card-container{
@@ -32,8 +20,23 @@
 .card{
   width: 100%;
   margin: 0 auto;
+}
 
+.flexbox-price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.flexbox-card{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexbox-map{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 // .fas {
