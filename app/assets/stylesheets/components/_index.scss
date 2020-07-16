@@ -2,12 +2,13 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "map";
 @import "button";
 
 .flex-container {
   margin: 30px 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px
 }
 
@@ -33,9 +34,9 @@
   }
 
   .show-bikeB{
-  width: 100%;
-  /*justify-content: flex-end;*/
-}
+    width: 100%;
+    /*justify-content: flex-end;*/
+  }
 }
 
 .title{
@@ -45,4 +46,9 @@
 
 .description{
   padding-top: 10px
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
 }
