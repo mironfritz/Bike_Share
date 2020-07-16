@@ -1,12 +1,12 @@
 <% if policy(Bike).create? %>
   <%= link_to "➕ Add bike", new_bike_path, class: "a-white primary-button"%>
 <% end %>
-
+<div class="index-container">
 <div class="flex-container">
     <% @bikes.each do |bike| %>
     <%= link_to bike, class: "card bike d-flex flex-column btn" do %>
          <% if bike.photo.attached? %>
-          <%= cl_image_tag bike.photo.key, height: 300, width: 300, crop: :fill  %>
+          <%= cl_image_tag bike.photo.key, height: 300, width: 300, crop: :fill, class: "bike-img" %>
           <% end %>
           <div class="title" mt-3>
             <h2><%= bike.title%></h2>
@@ -25,3 +25,4 @@
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>
