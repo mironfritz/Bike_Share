@@ -25,10 +25,14 @@
   h5 {
     margin-top: 10px;
   }
-  img {
+
+  }
+
+  .card-deck{
+    img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: none; /* Do not scale the image */
+    object-fit: fill ; /* Do not scale the image */
     object-position: center;
   }
 
@@ -44,5 +48,5 @@
 }
 
 .description{
-  padding-top: 10px
+  padding-top: 10px;
 }
