@@ -42,10 +42,13 @@
       <div style="padding:50px; height:500;" class="card">
         <p>Map here</p>
       </div>
-
-      <div style="padding:50px; height:500;" class="card">
-        <p>Booking calender here</p>
-      </div>
+      
+  <div class="flexbox-map">
+    <div style="padding:50px; height:250;" class="card">
+        <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     </div>
   </div>
 
