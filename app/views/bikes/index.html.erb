@@ -5,7 +5,7 @@
 
 <div class="flex-container">
     <% @bikes.each do |bike| %>
-     <div class="card d-flex flex-column">
+     <div class="card d-flex flex-column" >
        <% if bike.photo.attached? %>
         <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill  %>
         <% end %>
@@ -15,7 +15,12 @@
         <div class="description">
         <p><%= bike.description %></p>
         </div>
+        <div class="price">
+          <p><%= bike.price_per_day %> SEK </p>
+        </div>
         <%= link_to "Show bike", bike, class: "btn btn-outline-info w-100 mt-auto"%>
       </div>
     <% end %>
 </div>
+
+
