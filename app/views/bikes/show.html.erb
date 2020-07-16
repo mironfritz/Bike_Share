@@ -12,7 +12,7 @@
       <h2><%= @bike.bike_type %></h2>
         <%= @bike.description %>
 
-      <h2>Price/Day: <%= @bike.price_per_day %></h2>
+      <h2>Price / Day : <%= @bike.price_per_day %> SEK</h2>
 
       <% if policy(@bike).edit? %>
         <%= link_to "Update", edit_bike_path(@bike), class: "card-title primary-button" %>

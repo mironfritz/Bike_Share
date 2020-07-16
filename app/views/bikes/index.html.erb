@@ -1,12 +1,12 @@
 <% if policy(Bike).create? %>
   <%= link_to "➕ Add bike", new_bike_path, class: "a-white primary-button"%>
 <% end %>
-<div class="index-container">
-  <div class="flex-container">
-      <% @bikes.each do |bike| %>
-       <div class="card d-flex flex-column">
+
+<div class="flex-container">
+    <% @bikes.each do |bike| %>
+    <%= link_to bike, class: "card bike d-flex flex-column btn" do %>
          <% if bike.photo.attached? %>
-          <%= cl_image_tag bike.photo.key, height: 300, width: 400, crop: :fill  %>
+          <%= cl_image_tag bike.photo.key, height: 300, width: 300, crop: :fill  %>
           <% end %>
           <div class="title" mt-3>
             <h2><%= bike.title%></h2>
@@ -14,14 +14,14 @@
           <div class="description">
           <p><%= bike.description %></p>
           </div>
-          <%= link_to "Show bike", bike, class: "btn btn-outline-info w-100 mt-auto"%>
-        </div>
-      <% end %>
-  </div>
+          <div class="price">
+            <p><%= bike.price_per_day %> SEK</p>
+          </div>
+        <% end %>
+    <% end %>
+</div>
 
   <div id="map"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-</div>
