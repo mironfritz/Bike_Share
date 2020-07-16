@@ -27,12 +27,19 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import {hidePopUp, showPrice} from '../components/pop_up'
+
 import { initNavbar } from '../channels/navbar';
+
 
 document.addEventListener('turbolinks:load', () => {
   initNavbar();
   // Call your functions here, e.g:
   // initSelect2();
+  hidePopUp();
+  showPrice();
+
+
 });
 
 import { initMapbox } from '../plugins/init_mapbox';
