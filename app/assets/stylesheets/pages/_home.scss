@@ -29,6 +29,12 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
+.logo {
+  padding-left: 20px;
+  color:white;
+  text-align:left;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -44,8 +50,6 @@
   border-radius: 4px;
   box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-
-
 
 .fab {
   font-size: 30px;
