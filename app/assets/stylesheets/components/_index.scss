@@ -8,7 +8,7 @@
 .flex-container {
   margin: 30px 30px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px
 }
 
@@ -46,4 +46,9 @@
 
 .description{
   padding-top: 10px
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
 }
