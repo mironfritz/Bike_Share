@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
   before_action :set_bike, only: %i(show edit update destroy)
+
   def index
     @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
     @markers = @bikes.map do |bike|
@@ -17,6 +18,7 @@ class BikesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @bookings = Booking.where(params[:id] == @bike.id)
     @bookings = Booking.all
   end
