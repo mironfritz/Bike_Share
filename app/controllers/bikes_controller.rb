@@ -2,8 +2,6 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i(show edit update destroy)
   def index
     @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
-    puts "Mierda"
-    puts @bikes
     @markers = @bikes.map do |bike|
       {
         lat: bike.latitude,
