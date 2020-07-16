@@ -1,12 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i(edit update destroy)
 
-  def new
-    @bike = Bike.find(params[:bike_id])
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def edit
   end
 
