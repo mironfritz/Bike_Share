@@ -15,15 +15,15 @@
       <h2>Price/Day: <%= @bike.price_per_day %></h2>
 
       <% if policy(@bike).edit? %>
-        <%= link_to "Update", edit_bike_path(@bike), class: "card-title btn btn-outline-dark" %>
+        <%= link_to "Update", edit_bike_path(@bike), class: "card-title primary-button" %>
       <% end %>
 
       <% if policy(@bike).destroy? %>
-        <%= link_to "Delete", bike_path, method: :delete, class: "card-title btn btn-outline-dark"%>
+        <%= link_to "Delete", bike_path, method: :delete, class: "card-title primary-button"%>
       <% end %>
 
       <% if policy(Booking).create? %>
-        <%= link_to "Book this bike", new_bike_booking_path(@bike), class: "card-title btn btn-outline-warning"%>
+        <%= link_to "Book this bike", new_bike_booking_path(@bike), class: "card-title primary-button"%>
       <% end %>
 
       <h3>Bookings:</h3>
@@ -33,7 +33,7 @@
         <% end %>
       </ul>
 
-      <%= link_to "Back", bikes_path, class: "card-title btn btn-outline-dark"%>
+      <%= link_to "Back", bikes_path, class: "card-title secondary-button"%>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <% if policy(Bike).create? %>
-  <%= link_to "➕ Add bike", new_bike_path, class: "btn btn-outline-info"%>
+  <%= link_to "➕ Add bike", new_bike_path, class: "a-white primary-button"%>
 <% end %>
 
 
@@ -15,7 +15,7 @@
         <div class="description">
         <p><%= bike.description %></p>
         </div>
-        <%= link_to "Show bike", bike, class: "btn btn-outline-info w-100 mt-auto"%>
+        <%= link_to "Show bike", bike, class: "primary-button a-white w-100 m-auto"%>
       </div>
     <% end %>
 </div>

@@ -3,14 +3,11 @@
 <% end %>
   <div class="container-banner">
     <div class="banner">
-      <h1>Rent your dream bike</h1>
-      
-    <div class="btn btn-dark">
-      <%= link_to "Find a bike", bikes_path %>
-    </div>
-    <div class="btn btn-warning">
-      <%= link_to "Rent out a bike", new_bike_path %>
-    </div>
+      <div class="header-background">
+        <h1 class = "header">Rent your dream bike</h1>
+      </div>
+      <%= link_to "Rent out a bike", new_bike_path, class: "secondary-button" %>
+      <%= link_to "Find a bike", bikes_path, class: "primary-button" %>
   </div>
 </div>
 
@@ -26,8 +23,8 @@
     </div>
     <div class="card">
       <img class="card-img-top" src=<%= image_path("bike_picture_three.jpg") %> alt="Card image bike 2">
-      <div class="card-body">   
-        <div class="btn btn-outline-warning">
+      <div class="card-body">
+        <div class="primary-button">
           <%= link_to "Find a bike", bikes_path %>
         </div>
         <p class="card-text">Different bikes for different needs!</p>
