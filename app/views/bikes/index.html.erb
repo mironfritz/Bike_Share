@@ -15,18 +15,23 @@
       <%= link_to bike, class: "index-card bike" do %>
         <div class="index-photo">
           <% if bike.photo.attached? %>
-            <%= cl_image_tag bike.photo.key, height: 300, width: 300, crop: :fill  %>
+            <%= cl_image_tag bike.photo.key, height: 200, width: 400, crop: :pad  %>
           <% end %>
         </div>
-        <div class="index-text">
-          <div class="title" mt-3>
-            <h2><%= bike.title%></h2>
+        <div class="index-text-container">
+          <div class="index-text">
+            <div class="index-title" mt-3>
+              <h2><%= bike.title%></h2>
+            </div>
+            <div class="index-description">
+              <p><strong><%= bike.bike_type %></strong></p>
+              <p><%= bike.description %></p>
+              <p>Location: <%= bike.address %></p>
+            </div>
           </div>
-          <div class="description">
-            <p><%= bike.description %></p>
-          </div>
-          <div class="price">
-            <p><%= bike.price_per_day %> SEK</p>
+          <div class="index-price">
+            <div></div>
+            <div><p ><%= bike.price_per_day %> SEK / day</p></div>
           </div>
         </div>
       <% end %>
