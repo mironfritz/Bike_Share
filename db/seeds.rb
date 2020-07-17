@@ -32,64 +32,53 @@ puts "users created successfully"
 puts "creating bikes ..."
 
 mountainbike = Bike.create!(title: "Amazing Mountainbike", user: kalle, bike_type: "mountainbike",
-  description: "Amazing bike! Quickly to book, great to ride. New tires included.", price_per_day: 14.35, address: "Lillängsvägen 5, 131 41 Nacka")
+  description: "Amazing bike! Quickly to book, great to ride. New tires included.", price_per_day: 140.35, address: "Oranienburger Str. 27, 10117 Berlin, Germany")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986592/Decathlon-Stilus-Full-Suspension-Electric-Mountain-Bike-1-618x445_ka1l6k.png")
 mountainbike.photo.attach(io: file, filename: 'mountainbike.png', content_type: 'image/png')
 
-mountainbike_two = Bike.create!(title: "Fast mountainbike", user: stefan, bike_type: "mountainbike",
-  description: "Only one year old and perfect for a mountainbike trip on a sunny weekend.", price_per_day: 18, address: "Medborgarplatsen 3, 118 26 Stockholm")
-file = URI.open("https://unsplash.com/photos/QZv2PEXUk7c.jpg")
-mountainbike.photo.attach(io: file, filename: 'mountainbike_two.jpg', content_type: 'image/jpg')
+# mountainbike_two = Bike.create!(title: "Fast mountainbike", user: stefan, bike_type: "mountainbike",
+#   description: "Only one year old and perfect for a mountainbike trip on a sunny weekend.", price_per_day: 18, address: "Medborgarplatsen 3, 118 26 Stockholm")
+# file = URI.open("https://unsplash.com/photos/QZv2PEXUk7c.jpg")
+# mountainbike.photo.attach(io: file, filename: 'mountainbike_two.jpg', content_type: 'image/jpg')
 
-mountainbike_three = Bike.create!(title: "Fun in the wild", user: sander, bike_type: "mountainbike",
-  description: "3yrs old, nice to rent, easy to ride, flexible and nice for mountainbiking!", price_per_day: 12, address: "Bondegatan 70, 116 34 Stockholm")
-file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976844/philip-hawkshaw-ljpzTWHDGyM-unsplash_kcd4up.jpg")
-mountainbike.photo.attach(io: file, filename: 'mountainbike_three.jpg', content_type: 'image/jpg')
+# mountainbike_three = Bike.create!(title: "Fun in the wild", user: sander, bike_type: "mountainbike",
+#   description: "3yrs old, nice to rent, easy to ride, flexible and nice for mountainbiking!", price_per_day: 12, address: "Bondegatan 70, 116 34 Stockholm")
+# file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976844/philip-hawkshaw-ljpzTWHDGyM-unsplash_kcd4up.jpg")
+# mountainbike.photo.attach(io: file, filename: 'mountainbike_three.jpg', content_type: 'image/jpg')
 
-mountainbike_four = Bike.create!(title: "New mountainbike", user: jimmy, bike_type: "mountainbike",
-  description: "You can do everything with this bike: speed down flow trails, tour extensively, or simply have fun biking around from time to time.",
-  price_per_day: 28, address: "Norra Agnegatan 37, 112 29 Stockholm")
-file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976819/flynn-tesoriero-RaWG8ofq4S8-unsplash_a32bbq.jpg")
-mountainbike.photo.attach(io: file, filename: 'mountainbike_four.jpg', content_type: 'image/jpg')
-
-mountainbike_five = Bike.create!(title: "Rent a mountainbike", user: vilhelm, bike_type: "mountainbike",
-  description: "A little bit older but still great for any trail.There’s no need for you to compromise. You get a lightweight carbon frame with 130mm of travel in front and 120mm at the rear, outstanding climbing ability and agile riding",
-  price_per_day: 8.99, address: "Roslagsgatan 40, 113 54 Stockholm")
-file = URI.open("https://unsplash.com/photos/OXFucKH98H4.jpg")
-mountainbike.photo.attach(io: file, filename: 'mountainbike_five.jpg', content_type: 'image/jpg')
 
 citybike = Bike.create!(title: "Bike for the city", user: juljan, bike_type: "citybike",
-  description: "Old but fine. Could have some issues but it's cheap to rent", price_per_day: 5, address: "Hagalundsgatan 42, 169 66 Solna")
+  description: "Old but fine. Could have some issues but it's cheap to rent", price_per_day: 50, address: "Hagalundsgatan 42, 169 66 Solna")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976845/ryan-dam-AWPIiZ6PHxk-unsplash_u5bcy2.jpg")
 citybike.photo.attach(io: file, filename: 'citybike.jpg', content_type: 'image/jpg')
 
-citybike_two = Bike.create!(title: "Stockholm city bike", user: jea, bike_type: "citybike",
-  description: "Cute bike to ride in the city, 3 years old, nice color, works fine.", price_per_day: 4, address: "Sveavägen 57, 113 59 Stockholm")
-file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986585/concha-mayo-FeURlyigwjw-unsplash_nldxt2.jpg")
-citybike.photo.attach(io: file, filename: 'citybike_two.jpg', content_type: 'image/jpg')
+# citybike_two = Bike.create!(title: "Stockholm city bike", user: jea, bike_type: "citybike",
+#   description: "Cute bike to ride in the city, 3 years old, nice color, works fine.", price_per_day: 4, address: "Sveavägen 57, 113 59 Stockholm")
+# file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986585/concha-mayo-FeURlyigwjw-unsplash_nldxt2.jpg")
+# citybike.photo.attach(io: file, filename: 'citybike_two.jpg', content_type: 'image/jpg')
 
-citybike_three = Bike.create!(title: "Tourist bike", user: alex, bike_type: "citybike",
-  description: "Rent this for your perfect city pictures in Stockholm", price_per_day: 7.50, address: "Sibyllegatan 28, 114 42 Stockholm")
-file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976729/tiffany-nutt-0ClfreiNppM-unsplash_vnnwmp.jpg")
-citybike.photo.attach(io: file, filename: 'citybike_three.jpg', content_type: 'image/jpg')
+# citybike_three = Bike.create!(title: "Tourist bike", user: alex, bike_type: "citybike",
+#   description: "Rent this for your perfect city pictures in Stockholm", price_per_day: 7.50, address: "Sibyllegatan 28, 114 42 Stockholm")
+# file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976729/tiffany-nutt-0ClfreiNppM-unsplash_vnnwmp.jpg")
+# citybike.photo.attach(io: file, filename: 'citybike_three.jpg', content_type: 'image/jpg')
 
 citybike_four = Bike.create!(title: "Simple bike", user: yves, bike_type: "citybike",
-  description: "Good for riding to your work or discovering the city", price_per_day: 4, address: "Blekingegatan 33, 116 62 Stockholm")
+  description: "Good for riding to your work or discovering the city", price_per_day: 40, address: "Blekingegatan 33, 116 62 Stockholm")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986617/markus-spiske-FzA40q6nDiA-unsplash_qm248r.jpg")
 citybike.photo.attach(io: file, filename: 'citybike_four.jpg', content_type: 'image/jpg')
 
 ebike = Bike.create!(title: "Electric cruiser bike", user: valentin, bike_type: "e-bike",
-  description: "Powerful Hill Climbing: 65NM high-torque 48v/500w motor, Lightweight: Only 49 lbs, with rust resistant aluminum frame, Finest 48v 14Ah Samsung battery", price_per_day: 18.20, address: "Bellamyplein 51, 1053 AT Amsterdam, Netherlands")
+  description: "Powerful Hill Climbing: 65NM high-torque 48v/500w motor, Lightweight: Only 49 lbs, with rust resistant aluminum frame, Finest 48v 14Ah Samsung battery", price_per_day: 180, address: "Bellamyplein 51, 1053 AT Amsterdam, Netherlands")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976749/tower-electric-bikes-hv0jG8HjTd4-unsplash_ccjowt.jpg")
 ebike.photo.attach(io: file, filename: 'ebike.jpg', content_type: 'image/jpg')
 
 flowerbike = Bike.create!(title: "Flower power bike", user: anna, bike_type: "flowerbike",
-  description: "Cute girly bike. Nothing special, but pretty to look at! Easy to ride.", price_per_day: 6.50, address: "Skulptörvägen 4, 121 43 Johanneshov")
+  description: "Cute girly bike. Nothing special, but pretty to look at! Easy to ride.", price_per_day: 60, address: "Skulptörvägen 4, 121 43 Johanneshov")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594976765/wolfgang-rottmann-Ft3iIATZkTg-unsplash_oufzns.jpg")
 flowerbike.photo.attach(io: file, filename: 'flowerbike.jpg', content_type: 'image/jpg')
 
 tandembike = Bike.create!(title: "Funny tandembike", user: toni, bike_type: "tandembike",
-  description: "Ride tandem together - slow but awesome", price_per_day: 14, address: "Skånegatan 1-3, 411 40 Göteborg")
+  description: "Ride tandem together - slow but awesome", price_per_day: 140, address: "Skånegatan 1-3, 411 40 Göteborg")
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986144/672b04f9e44fa80dfb9810e118265443_xfc8eh.jpg")
 tandembike.photo.attach(io: file, filename: 'tandembike.jpg', content_type: 'image/jpg')
 
@@ -103,10 +92,6 @@ boxbike_two = Bike.create!(title: "Transportation bike", user: malin, bike_type:
 file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594986627/seaside_bike_brown_side_2020-1-1024x683_sf8ycx.jpg")
 boxbike.photo.attach(io: file, filename: 'boxbike_two.jpg', content_type: 'image/jpg')
 
-mountainbike_six = Bike.create!(title: "Berlin city bike", user: miron, bike_type: "citybike",
-  description: "White sporty bike. A lot of fun to ride around the citycenter.", price_per_day: 17, address: "Oranienburger Str. 27, 10117 Berlin, Germany")
-file = URI.open("https://res.cloudinary.com/dcxnu8gpn/image/upload/v1594989131/brennan-ehrhardt-HALe2SmkWAI-unsplash_zp8lq9.jpg")
-mountainbike.photo.attach(io: file, filename: 'mountainbike_six.jpg', content_type: 'image/jpg')
 
 citybike_five = Bike.create!(title: "Small bike", user: jenny, bike_type: "citybike",
   description: "4 years old, brownish color, small.", price_per_day: 9, address: "Borups Allé 126, 130, 2000 Frederiksberg, Denmark")

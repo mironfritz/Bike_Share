@@ -49,4 +49,17 @@
 #landing-page-button{
   color: white;
 }
+#landing-page-button:hover{
+  text-decoration: none;
+  background-color: white;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+  color: #D92E1E;
+}
+
+.booking-button{
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
