@@ -16,32 +16,30 @@
   font-family: 'Dosis', sans-serif;
   display: flex;
 
-
     h5 {
-    margin-top: 10px;
+      margin-top: 10px;
     }
 }
 
-.card-deck{
+.card-deck {
   img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: fill; /* Do not scale the image */
-  object-position: center;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: fill; /* Do not scale the image */
+    object-position: center;
   }
 
-  .show-bikeB{
+  .show-bikeB {
     width: 100%;
-    /*justify-content: flex-end;*/
   }
 }
 
-.title{
+.title {
   padding-top: 10px;
   margin: 0, auto;
 }
 
-.description{
+.description {
   padding-top: 10px;
 }
 
