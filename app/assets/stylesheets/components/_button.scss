@@ -26,16 +26,16 @@
   text-decoration: none;
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
   font-size: 20px;
   transition: 0.3s;
-  color: white;
+  color: rgba(0,0,0,0.3);
 }
 
 .secondary-button:hover{
   text-decoration: none;
   background-color: white;
-  box-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.5);
   color: #D92E1E;
 }
 
@@ -43,5 +43,9 @@
   margin: 0;
   padding: 2px 3px;
   border-radius: 3px;
+}
+
+#landing-page-button{
+  color: white;
 }
 
