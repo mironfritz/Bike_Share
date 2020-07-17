@@ -40,6 +40,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'geocoder'
 gem "simple_calendar", "~> 2.0"
+gem 'turbolinks_render'
 
 group :development, :test do
   gem 'pry-byebug'
