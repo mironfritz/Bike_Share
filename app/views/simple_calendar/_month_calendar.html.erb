@@ -1,10 +1,10 @@
-<div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to "⬅️", calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to "➡️", calendar.url_for_next_view %>
-  </div>
+<div id="calendar" class="simple-calendar">
 
+  <div class="calendar-heading">
+    <%= link_to "⬅️", calendar.url_for_previous_view, id: "nextMonth" %>
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to "➡️", calendar.url_for_next_view, id: "prevMonth" %>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,11 +14,11 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="tablebody">
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <%= content_tag :td, class: calendar.td_classes_for(day).push(sorted_events.fetch(day, []).present? ? "has-events" : "has-no-events")  do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>

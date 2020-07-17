@@ -39,7 +39,7 @@
   img{
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
@@ -73,7 +73,7 @@
 }
 
 .show-map {
-  height: 200px;
+  height: 300px;
   width: 100%;
   margin-top: 1px;
   top: 0;
@@ -85,10 +85,20 @@
   justify-content: space-between;
 }
 
+.space-between-buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.calendar-show{
+
+}
+
 
 .calendar{
-  padding: 0 20%;
-
+  padding-bottom: 10%;
+  padding-top: 10%;
 }
 
 .day{
@@ -97,17 +107,47 @@
 }
 
 .booking-event{
-  padding: 10px;
+  padding: px;
   background-color: #7BC4CB;
   opacity-color: 1;
-  margin-bottom: 10px;
+  text-align:center;
+}
 
+.calendar-heading{
   text-align: center;
+  padding-bottom: 30px;
+}
+
+.calendar-title{
+  font-weight: bold;
+}
+
+.simple-calendar th {
+ font-family: "Nunito", "Helvetica", "sans-serif";
+
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border: 1px solid white;
+
 }
 
 
+.simple-calendar td {
+ border-left: 1px solid grey;
+ border-right: 1px solid grey;
+ border-top: 1px solid white;
+ border-bottom: 1px solid white;
 
+}
 
+.simple-calendar .day {
+  height: 50px;
+  background-color: white;
+}
 
-
+.simple-calendar .has-events{
+  background-color:#7BC4CB;
+}
 

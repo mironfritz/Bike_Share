@@ -1,4 +1,3 @@
-
 <div class="showpage-container">
   <div class="bike-info-container">
       <div class="uploaded-image">
@@ -23,8 +22,8 @@
   </div>
   <div class="bike-booking-container">
 <!-- CALENDER -->
-    <div class="calendar">
-      <%= month_calendar(events: @bookings, attribute: :start_date, end_attribute: :end_date) do |date, bookings| %>
+    <div class="calendar calendar-show">
+      <%= month_calendar(events: @bookings, attribute: :start_date, end_attribute: :end_date, remote: true) do |date, bookings| %>
         <%= date.day %>
         <% bookings.each do |booking| %>
           <div class="booking-event">
@@ -50,8 +49,10 @@
             <span>Total price:</span>
               <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %></div>
           </div>
-          <%= f.submit "Request booking", class: "primary-button" %>
-          <%= link_to "Cancel", bike_path(@bike), class: "secondary-button" %>
+          <div class="space-between-buttons">
+            <%= f.submit "Request booking", class: "primary-button" %>
+            <%= link_to "Cancel", bike_path(@bike), class: "secondary-button" %>
+          </div>
         <% end %>
       </div>
     </div>
