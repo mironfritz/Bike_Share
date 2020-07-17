@@ -30,7 +30,7 @@ import "bootstrap";
 import {hidePopUp, showPrice} from '../components/pop_up'
 
 import { initNavbar } from '../channels/navbar';
-
+import { initCalendar } from '../components/calendar';
 
 document.addEventListener('turbolinks:load', () => {
   initNavbar();
@@ -38,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   hidePopUp();
   showPrice();
+  initCalendar();
 
 
 });
