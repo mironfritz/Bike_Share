@@ -2,7 +2,12 @@ class BikesController < ApplicationController
   before_action :set_bike, only: %i(show edit update destroy)
 
   def index
-    @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
+    if params[:query].present?
+      sql_query = "address @@ :query OR bike_type @@ :query"
+      @bikes = policy_scope(Bike).geocoded.order(created_at: :desc).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @bikes = policy_scope(Bike).geocoded.order(created_at: :desc)
+    end
     @markers = @bikes.map do |bike|
       {
         lat: bike.latitude,
