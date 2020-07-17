@@ -7,12 +7,12 @@
   color: red;
 }
 
-.bike:hover{
-  box-shadow: 8px 8px 8px 8px rgba(0,0,0,0.1);
+.bike:hover {
+  box-shadow: 0px 0px 10px 10px rgba(0,0,80,0.1);
   text-decoration: none;
 }
 
-.bike-img{
+.bike-img {
   max-width: 100%;
   object-fit: cover ; /* Do not scale the image */
   object-position: center;
