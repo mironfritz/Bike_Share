@@ -26,6 +26,13 @@ class BikesController < ApplicationController
     @booking = Booking.new(bike: @bike)
     @bookings = Booking.where(params[:id] == @bike.id)
     @bookings = Booking.all
+    @markers = [
+      {
+        lat: @bike.latitude,
+        lng: @bike.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { bike: @bike }),
+      }
+    ]
   end
 
   def edit

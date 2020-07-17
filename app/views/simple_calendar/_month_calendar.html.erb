@@ -1,5 +1,10 @@
 <div id="calendar" class="simple-calendar">
 
+  <div class="calendar-heading">
+    <%= link_to "⬅️", calendar.url_for_previous_view, id: "nextMonth" %>
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <%= link_to "➡️", calendar.url_for_next_view, id: "prevMonth" %>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -25,9 +30,4 @@
       <% end %>
     </tbody>
   </table>
-  <div class="calendar-heading">
-    <%= link_to "⬅️", calendar.url_for_previous_view, id: "nextMonth" %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to "➡️", calendar.url_for_next_view, id: "prevMonth" %>
-  </div>
 </div>

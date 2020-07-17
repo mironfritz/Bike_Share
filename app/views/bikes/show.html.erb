@@ -1,91 +1,61 @@
-
-<div class="page-container">
-
-    <div class=flexbox-card>
-      <div class="container show-card-container">
-        <div class="card">
-      <h1 style="color:grey; text-align:center"><bold><%= @bike.title %></bold></h1>
-        <div class="uploaded-image">
-          <% if @bike.photo.attached? %>
-            <%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
-          <% end %>
+<div class="showpage-container">
+  <div class="bike-info-container">
+      <div class="uploaded-image">
+        <% if @bike.photo.attached? %>
+          <%= cl_image_tag @bike.photo.key, crop: :fill %>
+        <% end %>
+      </div>
+      <div class="bike-details-container">
+        <h1> <%= @bike.title %> </h1>
+        <h2 id="bike-type">Type: <%= @bike.bike_type %></h2>
+        <p id="bike-description"> <%= @bike.description %></p>
+        <div class="flexbox-day-price">
+          <div class="day-price"> <%= "#{@bike.price_per_day} SEK" %></div>
+          <p class="per_day_text">per day</p>
         </div>
-        <div class="flexbox-price">
-            <h3 style="text-align:left;">Type: <%= @bike.bike_type %></h3>
-            <h5 style="text-align:center; color: #E02C1D; margin: 5px;">
-              <p>Daily price:</p>
-              <p style="text-align:center;"> <span class="day-price"><%= @bike.price_per_day %></span> SEK</p>
-            </h5>
-        </div>
-            <h4 style="color: grey;text-align:left">Details: <%= @bike.description %></h4>
-            <% if policy(@bike).edit? %>
-              <%= link_to "Update", edit_bike_path(@bike), class: "card-title primary-button" %>
-            <% end %>
-
-          <% if policy(@bike).destroy? %>
-            <%= link_to "Delete", bike_path, method: :delete, class: "card-title primary-button"%>
-          <% end %>
-
-          <% if policy(@booking).create? %>
-            <%= link_to "Book this bike", @bike , class: "primary-button booking-button card-title"%>
-          <% end %>
-            <h3>Bookings:</h3>
-            <ul>
-              <% @bookings.each do |booking| %>
-                <li><%= "Booked from #{booking.start_date} to #{booking.end_date} | booking status: #{booking.status}" %></li>
-              <% end %>
-            </ul>
+      </div>
+<!-- MAP -->
+      <div id="map" class="show-map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+  </div>
+  <div class="bike-booking-container">
+<!-- CALENDER -->
+    <div class="calendar calendar-show">
+      <%= month_calendar(events: @bookings, attribute: :start_date, end_attribute: :end_date, remote: true) do |date, bookings| %>
+        <%= date.day %>
+        <% bookings.each do |booking| %>
+          <div class="booking-event">
+            <%= "Booked" %>
           </div>
-        </div>
-
-      <div class="flexbox-map">
-        <div style="padding:50px; height:500;" class="card">
-          <p>Map here</p>
-        </div>
-
-    <div class="flexbox-map">
-      <div style="padding:50px; height:250;" class="card">
-          <div id="map"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-      </div>
+        <% end %>
+      <% end %>
     </div>
-
-      <!-- Booking -->
-
-
+<!-- BOOKING BUTTON-->
+      <%  if policy(@booking).create? %>
+        <h2 class="primary-button booking-button">Book this bike</h2>
+      <% end %>
+<!-- BOOKING FORM-->
     <div class="popup">
-        <div class="pb-3 pt-3 ">
-          <h1>Book <%= @bike.title %></h1>
-        </div>
-
-        <div>
-          <%= simple_form_for [@bike, @booking] do |f|%>
-            <%= f.input :start_date, class: "start_date"%>
-            <%= f.input :end_date, class: "end_date"%>
-            <div class="price">
-            <%= "Total Price:"  %>
-            <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %>
-            </div>
+      <div class="pb-3 pt-3 ">
+        <h1>Book <%= @bike.title %></h1>
+      </div>
+      <div>
+        <%= simple_form_for [@bike, @booking] do |f|%>
+          <%= f.input :start_date, class: "start_date"%>
+          <%= f.input :end_date, class: "end_date"%>
+          <div class="flexbox-price">
+            <span>Total price:</span>
+              <div class="total-price"> <%= "#{@bike.price_per_day} SEK" %></div>
+          </div>
+          <div class="space-between-buttons">
             <%= f.submit "Request booking", class: "primary-button" %>
             <%= link_to "Cancel", bike_path(@bike), class: "secondary-button" %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
-
-<div class="calendar">
-<%= month_calendar(events: @bookings, attribute: :start_date, end_attribute: :end_date, remote: true) do |date, bookings| %>
-  <%= date.day %>
-
-  <% bookings.each do |booking| %>
-    <div class="booking-event">
-      <%= "Booked" %>
-    </div>
-  <% end %>
-<% end %>
 </div>
 
